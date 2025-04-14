@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 257046044}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.65, y: 0.29, z: 0}
+  m_LocalPosition: {x: 4.1, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -420,7 +420,7 @@ Transform:
   m_GameObject: {fileID: 1936328724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10.53, y: -20.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5851,7 +5851,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 28
-      m_TileSpriteIndex: 34
+      m_TileSpriteIndex: 78
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9108,8 +9108,8 @@ Tilemap:
     m_Data: {fileID: -607590734, guid: 800b1f8aa84b8f54bb032207e0254e2a, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 992138637, guid: 800b1f8aa84b8f54bb032207e0254e2a, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1189006212, guid: ac797677eb52ba746873f115c919c504, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 1888853677, guid: 8dfedb129e3108147867a7acca7b13a7, type: 3}
   - m_RefCount: 8
@@ -9196,8 +9196,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1189006212, guid: ac797677eb52ba746873f115c919c504, type: 3}
   - m_RefCount: 23
     m_Data: {fileID: -440662259, guid: fbb8370f7efa7664d8c4c01884ab2c12, type: 3}
   m_TileMatrixArray:
@@ -9280,7 +9280,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -37, y: -5, z: 0}
-  m_Size: {x: 54, y: 42, z: 1}
+  m_Size: {x: 57, y: 42, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -9387,7 +9387,7 @@ Transform:
   m_GameObject: {fileID: 2084689166}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 6.268, y: -5.99, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
