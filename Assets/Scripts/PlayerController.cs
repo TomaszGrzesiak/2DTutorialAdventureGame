@@ -3,17 +3,35 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    // Variables related to temporary invincibility
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float damageCooldown;
+    
     //public InputAction LeftAction;
     public InputAction MoveAction;
+    
+    Rigidbody2D rigidbody2d;
+    Vector2 move;
+    
+    // Variables related to the health system
+    public int maxHealth = 5;
+    internal int currentHealth;
+    public int health { get { return currentHealth; }}
+    
+    public float playerSpeed = 3.0f; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //LeftAction.Enable();
         MoveAction.Enable();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        
         // two lines below: set the game to fixed 10 fps
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 60;
+        
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -34,9 +52,47 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
         */
         // below a more scalable example of player controlling input 
-        Vector2 move = MoveAction.ReadValue<Vector2>();
-        Debug.Log(move);
-        Vector2 position = (Vector2)transform.position + move * 3f * Time.deltaTime; // "* Time.deltaTime" makes it FPS independent 
-        transform.position = position;
+        
+        // user input is being updated in each frame. But the actual move is being programmed in FixedUpdate() 
+        move = MoveAction.ReadValue<Vector2>();
+        
+        //Debug.Log(move);
+            
+        // Old way to move the main character - without incorporating physics
+        // Vector2 position = (Vector2)transform.position + move * 3f * Time.deltaTime; // "* Time.deltaTime" makes it FPS independent 
+        // transform.position = position;
+        
+        if (isInvincible)
+        {
+            damageCooldown -= Time.deltaTime;
+            if (damageCooldown < 0)
+            {
+                isInvincible = false;
+            }
+        }
+    }
+    
+    void FixedUpdate()
+    {
+        Vector2 position = (Vector2)rigidbody2d.position + move * playerSpeed * Time.deltaTime;
+        rigidbody2d.MovePosition(position);
+    }
+    
+    public void ChangeHealth (int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            damageCooldown = timeInvincible;
+        }
+        
+        // prevents from changing currentHealth below 0 or above maxHealth
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }
